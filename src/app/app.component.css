@@ -1,0 +1,83 @@
+input#message {
+    background:#fff;
+    border:none;
+    outline:none;
+    box-shadow:none;
+    font-size:1.6em;
+    font-weight:300;
+    margin-bottom: 3em;
+    padding:1.2em .7em;
+}
+
+#details-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+#details-container p {
+    background:#fff;
+    padding:1.4em;
+    color:#696969;
+    margin: 12px;
+    width:auto;
+    min-width:200px;
+}
+
+img {
+    display:block;
+    margin-bottom:12px;
+}
+
+
+/* HEADER STYLES
+--------------------------------------------------------------------- */
+header {
+}
+
+/* MAIN STYLES
+--------------------------------------------------------------------- */
+
+main {
+    padding: 0 20px;
+    min-height: 300px;
+
+    .products-table {
+        margin-top: 20px;
+
+        .delete-column {
+            width: 60px;
+        }
+    }
+
+    /* side form */
+    .view-side-form {
+        .side-form {
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100%;
+            overflow: auto;
+            background: #fff;
+            padding: 20px;
+            border-left: 1px solid #e0e0e0;
+        }
+    }
+}
+
+main{
+  margin-top: 50px;
+}
+
+
+/* FOOTER STYLES
+--------------------------------------------------------------------- */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}

@@ -1,0 +1,4 @@
+<div>
+  <input *ngIf="(user | async)?.uid" type="text" id="message" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" />
+  <p *ngIf="!(user | async)?.uid">You Are Not Logged In</p>
+</div>

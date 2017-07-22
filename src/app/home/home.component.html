@@ -1,0 +1,7 @@
+<div class="columns">
+    <div id="details-container">
+      <p *ngFor="let item of items | async"><img src=""/>{{item.message}}
+        <span style="display: inline-block; float: right;cursor: pointer;" (click)="removePokemon(item)">X</span>
+      </p>
+  </div>
+</div>
