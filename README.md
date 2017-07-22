@@ -1,5 +1,5 @@
-# Pokemon
-
+# Pokemon List
+A small project having CRUD database of pokemon. Designed and Developed using Angular4 and FireBase.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3.
 
 ## Development server
