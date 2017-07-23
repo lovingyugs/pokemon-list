@@ -2,7 +2,7 @@
   "name": "pokemon",
   "version": "1.0.0",
   "description": "CRUD database of pokemon using Angular 4 and Firebase.",
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -16,7 +16,6 @@
     "url": "git+https://github.com/lovingyugs/pokemon-list.git"
   },
   "author": "yugal",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/lovingyugs/pokemon-list/issues"
   },
@@ -32,6 +31,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular2-image-upload": "^0.6.6",
     "angularfire2": "^4.0.0-rc.1",
     "core-js": "^2.4.1",
     "firebase": "^4.1.3",
@@ -61,4 +61,3 @@
     "typescript": "~2.3.3"
   }
 }
-

@@ -9,7 +9,6 @@ import { AllServices } from './_services/index';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CollapseModule } from 'ngx-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { firebaseConfig } from './_config/firebase.config';
 
 @NgModule({

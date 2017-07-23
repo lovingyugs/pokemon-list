@@ -1,0 +1,93 @@
+
+#addPoke .form-container .row {
+  max-width: auto;
+  width: 100%;
+}
+
+
+#addPoke .form-container .columns {
+  max-width: auto;
+  width: 100%;
+}
+
+.button{
+  font-size: small;
+}
+
+input{
+  font-size: medium
+}
+
+label {
+  width: 100%;
+  font-size: small;
+}
+
+select,
+input,
+textarea {
+  height: auto;
+}
+
+.half {
+  width: 40%;
+}
+
+.nature {
+  float: right;
+}
+
+@media only screen and (max-width: 500px) {
+  .half {
+    width: 100%;
+  }
+  .nature {
+    float: left;
+  }
+}
+
+select {
+  //width: 50%;
+}
+
+.form-container {
+  display: block;
+  width: 90%;
+  padding: 2em;
+  margin: 2em auto;
+  background: #fff;
+}
+
+.alert {
+  background: #f2edda;
+  padding: 7px;
+  font-size: .9em;
+  margin-bottom: 20px;
+  display: block;
+  max-width: 100%;
+  width: auto;
+  animation: 2s alertAnim forwards;
+}
+
+.button {
+  margin-top: 3rem;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-family: 'Muli';
+  font-size: 2em;
+}
+
+
+@keyframes alertAnim {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

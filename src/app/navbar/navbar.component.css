@@ -1,8 +1,15 @@
 nav{
   height: auto;
   min-height: 10px;
+  max-height: 66px;
 }
 
+@media only screen and (max-width: 500px) {
+    nav{
+      height: inherit;
+      max-height: inherit;
+    }
+}
 button{
       width: inherit;
 }

@@ -1,7 +1,13 @@
 <div class="columns">
-    <div id="details-container">
-      <p *ngFor="let item of items | async"><img src=""/>{{item.message}}
-        <span style="display: inline-block; float: right;cursor: pointer;" (click)="removePokemon(item)">X</span>
-      </p>
+  <div id="details-container">
+    <div class="card form-container" *ngFor="let item of items | async">
+      <span><img style="display: inline-block;" class="img-poke" src="../../assets/images/5.png" />
+      <p class="style-in-line"><b>{{item.name}}</b></p>
+      <img class="cross" src="../../assets/images/delete.png" (click)="editPokemon(item)"/>
+      <img class="edit" src="../../assets/images/edit.svg" (click)="removePokemon(item)"/>
+      </span>
+      <p><b>Type:</b> {{item.type}}</p>
+      <p class="grid"><b>Description:</b> {{item.description}}</p>
+    </div>
   </div>
 </div>

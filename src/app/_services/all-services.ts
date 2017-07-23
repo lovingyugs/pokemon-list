@@ -36,8 +36,8 @@ export class AllServices{
     this.afAuth.auth.signOut();
   }
 
-  save(desc) {
-    this.items.push(desc).then(_ => {
+  save(newPokemon) {
+    this.items.push(newPokemon).then(_ => {
       console.log('item Added Successfully!')
       //window.location.href = "/home";
       alert("Pokemon Added Successfully!")
