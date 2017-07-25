@@ -15,16 +15,16 @@ body {
   margin: 0 auto 1em;
   display: inline-block;
   vertical-align: middle;
-  font-size: 1.5em;
+  font-size: 1.7em;
   margin-top: 10%;
 }
 
-/*
-  Set the color of the icon
-*/
-svg path,
-svg rect{
-  fill: #FF6700;
+.loading-img{
+  width: 10%;
+}
+
+.loading-text{
+  margin: -23px 0 10px 13px;
 }
 
 button {
@@ -43,6 +43,14 @@ button {
     padding-top: 3em;
   }
   .loader{
-    margin-top: 30px;
+    // margin-top: 40px;
+    margin-top: 50%;
+    font-size: 1em;
+  }
+  .loading-img{
+    width: 45%;
+  }
+  .loading-text{
+    font-size: 2em;
   }
 }

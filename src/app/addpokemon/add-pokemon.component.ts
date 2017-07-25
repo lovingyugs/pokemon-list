@@ -3,16 +3,14 @@ import { OnInit, OnDestroy } from '@angular/core';
 import { AllServices } from '../_services/index';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PokemonType } from './pokemon-type.component';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   templateUrl: "add-pokemon.component.html",
   styleUrls: ['add-pokemon.component.css', '../app.component.css']
 })
 
-export class AddPokemonComponent implements OnInit, OnDestroy {
+export class AddPokemonComponent implements OnInit {
   message: any;
-  subscription: Subscription;
   user: any;
   rForm: FormGroup;
   titleAlert: string = 'This field is required';
@@ -60,12 +58,6 @@ export class AddPokemonComponent implements OnInit, OnDestroy {
       'pokeNature': this.pokeNatures[0].id,
       'validate': ''
     });
-    this.subscription = this.allServices.getMessage().subscribe(message => {
-      this.message = message;
-      console.log(this.message);
-    });
-    // console.log(this.subscription);
-    //console.log(this.pokeTypes);
   }
 
   ngOnInit() {
@@ -112,18 +104,5 @@ export class AddPokemonComponent implements OnInit, OnDestroy {
       item.id = index + 1;
     });
     this.selectedType.id = Math.floor(this.pokeTypes.length/2);
-  }
-
-  editPokemon(item){
-    this.subscription = this.allServices.getMessage().subscribe(message => {
-      this.message = message;
-      console.log(message);
-    });
-    console.log(item);
-  }
-
- ngOnDestroy() {
-      // unsubscribe to ensure no memory leaks
-      this.subscription.unsubscribe();
   }
 }

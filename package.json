@@ -5,7 +5,7 @@
   "license": "ISC",
   "scripts": {
     "ng": "ng",
-    "postinstall": "ng build",
+    "postinstall": "ng build --prod",
     "start": "node server.js",
     "test": "ng test",
     "lint": "ng lint",
