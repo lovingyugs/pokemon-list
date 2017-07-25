@@ -1,6 +1,14 @@
 # Pokemon List
 A small project having CRUD database of pokemon. Designed and Developed using Angular4 and FireBase.
 
+## Requirements
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.3. Minimum requirements are-
+```
+Angular CLI: 1.2.3
+NPM: 3.10.6
+Node: 6.5.0
+```
+
 ## Installations
 After cloning the repo, follow the commands
 ```
