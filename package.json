@@ -5,12 +5,15 @@
   "license": "ISC",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
     "postinstall": "ng build --prod",
-    "build": "ng build --prod",
+    "start": "node server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "engines": {
+    "node": "6.11.1",
+    "npm": "3.10.9"
   },
   "repository": {
     "type": "git",
