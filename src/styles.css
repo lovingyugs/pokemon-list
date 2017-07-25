@@ -5,6 +5,28 @@ body {
 * {
     font-family: 'Raleway';
 }
+
+.loader{
+  width: 100%;
+  margin: 0 0 2em;
+  height: 100px;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.5em;
+  margin-top: 10%;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+  fill: #FF6700;
+}
+
 button {
     background:#008FEF;
     color:white;
@@ -19,5 +41,8 @@ button {
 @media only screen and (max-width: 500px){
   body{
     padding-top: 3em;
+  }
+  .loader{
+    margin-top: 30px;
   }
 }
