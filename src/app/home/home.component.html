@@ -4,6 +4,7 @@
       <span><img style="display: inline-block;" class="img-poke" src="../../assets/images/5.png" />
       <p class="style-in-line"><b>{{item.name}}</b></p>
       <img class="cross" src="../../assets/images/delete.png" (click)="removePokemon(item)"/>
+      <img class="edit" [routerLink]="['../edit', item.id]" src="../../assets/images/edit.svg"/>
       </span>
       <p><b>Type:</b> {{item.type}}</p>
       <p><b>Nature:</b> {{item.nature}}</p>

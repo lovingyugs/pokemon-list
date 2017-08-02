@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { AllServices } from '../_services/';
 
 @Component({
@@ -12,7 +12,6 @@ export class HomeComponent{
   message: any;
 
   constructor(private allServices: AllServices) {
-    console.log("in home cons");
     this.items = allServices.getAll();
   }
 

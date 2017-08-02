@@ -3,6 +3,8 @@ import { OnInit, OnDestroy } from '@angular/core';
 import { AllServices } from '../_services/index';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PokemonType } from './pokemon-type.component';
+import { Subscription } from 'rxjs/Subscription';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: "add-pokemon.component.html",
@@ -10,8 +12,11 @@ import { PokemonType } from './pokemon-type.component';
 })
 
 export class AddPokemonComponent implements OnInit {
+  title: string;
   message: any;
+  subscription: Subscription;
   user: any;
+  item: any;
   rForm: FormGroup;
   titleAlert: string = 'This field is required';
   selectedType: PokemonType = new PokemonType(0, '');
@@ -48,9 +53,10 @@ export class AddPokemonComponent implements OnInit {
     },
   ];
 
-  constructor(private allServices: AllServices, private fb: FormBuilder) {
+  constructor(private allServices: AllServices, private route: ActivatedRoute, private fb: FormBuilder) {
     this.user = allServices.getUser();
     this.SortMap();
+    this.selectedType.id = Math.floor(this.pokeTypes.length/2);
     this.rForm = this.fb.group({
       'name': [null, Validators.required],
       'description': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(500)])],
@@ -58,9 +64,24 @@ export class AddPokemonComponent implements OnInit {
       'pokeNature': this.pokeNatures[0].id,
       'validate': ''
     });
+    this.title = 'Add Product';
   }
 
   ngOnInit() {
+    let pokeId = Number(this.route.snapshot.params['id']);
+    if (pokeId>-1 && typeof(pokeId) === 'number' && pokeId !== undefined && !isNaN(pokeId)) {
+        this.title = 'Edit Product';
+        let pokemon = this.getById(pokeId);
+        this.selectedType.id = this.getIdByTypeName(pokemon.type);
+        this.rForm = this.fb.group({
+          'name': [pokemon.name, Validators.required],
+          'description': [pokemon.description, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(500)])],
+          'pokeType': [Number(this.selectedType.id)],
+          'pokeNature': Number(this.pokeNatures.find(eachNature=> eachNature.nature === pokemon.nature)),
+          'validate': ''
+        });
+    }
+
     this.rForm.get('validate').valueChanges.subscribe(
       (validate) => {
         if (validate == '1' || validate) {
@@ -82,7 +103,6 @@ export class AddPokemonComponent implements OnInit {
   }
 
   addPokemon(pokemon) {
-    console.log(pokemon);
     let item = {
       description: pokemon.description,
       name: (pokemon.name).charAt(0).toUpperCase() + (pokemon.name).slice(1),
@@ -90,7 +110,6 @@ export class AddPokemonComponent implements OnInit {
       nature: this.pokeNatures[parseInt(pokemon.pokeNature) - 1].nature
     };
     this.allServices.save(item);
-    console.log(item);
   }
 
   SortMap() {
@@ -103,6 +122,22 @@ export class AddPokemonComponent implements OnInit {
     this.pokeTypes.map((item, index) => {
       item.id = index + 1;
     });
-    this.selectedType.id = Math.floor(this.pokeTypes.length/2);
+  }
+
+  private getById(pokeId: number){
+    let me=this.allServices.getPokemonById(pokeId);
+    return me;
+  }
+
+  private getIdByTypeName(typeName: string){
+     let temp = this.pokeTypes;
+     let returnId = Math.floor(temp.length/2);
+     for(let i=0;i<temp.length;i++){
+       if(temp[i].name === typeName){
+         returnId = temp[i].id;
+         break;
+       }
+     }
+     return returnId;
   }
 }
