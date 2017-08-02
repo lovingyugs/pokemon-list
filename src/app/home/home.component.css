@@ -23,7 +23,7 @@ input#message {
   margin: 12px;
   width: auto;
   min-width: 230px;
-  max-width: 500px;
+  max-width: 406px;
 }
 
 img {
@@ -64,7 +64,7 @@ img {
 }
 
 .card p {
-  word-break: break-all;
+  word-break: keep-all;
 }
 
 @media only screen and (max-width: 500px) {

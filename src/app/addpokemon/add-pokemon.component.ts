@@ -20,6 +20,7 @@ export class AddPokemonComponent implements OnInit {
   rForm: FormGroup;
   titleAlert: string = 'This field is required';
   selectedType: PokemonType = new PokemonType(0, '');
+  selectedNature: number;
   pokeTypes = [
     new PokemonType(1, 'Fire'),
     new PokemonType(2, 'Grass'),
@@ -57,11 +58,12 @@ export class AddPokemonComponent implements OnInit {
     this.user = allServices.getUser();
     this.SortMap();
     this.selectedType.id = Math.floor(this.pokeTypes.length/2);
+    this.selectedNature = 1;
     this.rForm = this.fb.group({
       'name': [null, Validators.required],
       'description': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(500)])],
       'pokeType': [this.selectedType.id],
-      'pokeNature': this.pokeNatures[0].id,
+      'pokeNature': this.selectedNature,
       'validate': ''
     });
     this.title = 'Add Product';
@@ -73,11 +75,12 @@ export class AddPokemonComponent implements OnInit {
         this.title = 'Edit Product';
         let pokemon = this.getById(pokeId);
         this.selectedType.id = this.getIdByTypeName(pokemon.type);
+        this.selectedNature = Number(this.getIdByNature(pokemon.nature));
         this.rForm = this.fb.group({
           'name': [pokemon.name, Validators.required],
           'description': [pokemon.description, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(500)])],
           'pokeType': [Number(this.selectedType.id)],
-          'pokeNature': Number(this.pokeNatures.find(eachNature=> eachNature.nature === pokemon.nature)),
+          'pokeNature': this.selectedNature,
           'validate': ''
         });
     }
@@ -127,6 +130,15 @@ export class AddPokemonComponent implements OnInit {
   private getById(pokeId: number){
     let me=this.allServices.getPokemonById(pokeId);
     return me;
+  }
+
+  private getIdByNature(nature: string){
+    let natureId = this.pokeNatures.find((eachNature: any) => {
+      if(eachNature.nature === nature){
+        return eachNature.id;
+      }
+    });
+    return natureId.id;
   }
 
   private getIdByTypeName(typeName: string){

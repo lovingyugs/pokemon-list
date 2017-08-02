@@ -20,7 +20,7 @@
           </select>
         </label>
         <label class="half nature"> Pokemon Nature
-          <select formControlName="pokeNature" value={{1}}>
+          <select formControlName="pokeNature" value={{selectedNature}}>
             <option *ngFor="let i of pokeNatures" value={{i.id}}>
               {{i.nature}}
             </option>
